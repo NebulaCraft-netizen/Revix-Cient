@@ -7,12 +7,13 @@
 <style>
 html,body{margin:0;padding:0;height:100%;overflow-x:hidden;font-family:'Inter',sans-serif;background:black;color:white;}
 header,section,footer{position:relative;}
-.galaxy-logo{width:150px;height:150px;border-radius:50%;background:conic-gradient(#22d3ee,#7c3aed,#ff22ee,#22d3ee);display:flex;justify-content:center;align-items:center;font-size:32px;font-weight:bold;color:white;}
+.galaxy-logo{width:150px;height:150px;border-radius:50%;background:conic-gradient(#22d3ee,#7c3aed,#ff22ee,#22d3ee);display:flex;justify-content:center;align-items:center;font-size:32px;font-weight:bold;color:white;margin:auto;}
 .star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:0.8;animation:twinkle 4s infinite alternate;}
 @keyframes twinkle{0%{opacity:0.2;}50%{opacity:1;}100%{opacity:0.2;}}
-.navbar{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:rgba(0,0,0,0.4);backdrop-filter:blur(6px);flex-wrap:wrap;position:fixed;width:100%;z-index:10;}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:rgba(0,0,0,0.4);backdrop-filter:blur(6px);flex-wrap:wrap;position:fixed;width:100%;top:30px;z-index:10;}
 .navbar .nav-links a{color:white;text-decoration:none;margin:0 8px;font-weight:bold;transition:0.2s;cursor:pointer;}
 .navbar .nav-links a:hover{color:#22d3ee;}
+.top-bar{position:fixed;top:0;left:0;width:100%;background:#111;color:#22d3ee;text-align:center;padding:6px;font-weight:bold;z-index:1000;font-family:'Inter',sans-serif;}
 .scroll-left{animation:scroll-left 8s linear infinite;}
 .scroll-right{animation:scroll-right 8s linear infinite;}
 @keyframes scroll-left{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
@@ -21,6 +22,9 @@ section{padding:100px 20px;min-height:100vh;}
 </style>
 </head>
 <body>
+
+<!-- Top Announcement Bar -->
+<div class="top-bar">Welcome to Revix Client × Minedime — Minecraft Client & Server Collaboration</div>
 
 <!-- Stars -->
 <div id="stars"></div>
@@ -51,26 +55,33 @@ document.addEventListener('DOMContentLoaded',()=>{
   </div>
 </nav>
 
-<header id="home" style="margin-top:100px;display:flex;flex-direction:column;align-items:center;gap:20px;">
+<header id="home" style="margin-top:80px;display:flex;flex-direction:column;align-items:center;gap:20px;">
   <div class="galaxy-logo">RVX</div>
   <h1>REVIX CLIENT × MINEDIME</h1>
-  <p style="max-width:600px;text-align:center;">The ultimate Minecraft client. Fast, customizable, and ready to collaborate with servers like MINEDIME.</p>
+  <p style="max-width:600px;text-align:center;">The ultimate Minecraft client. Fast, customizable, ready to collaborate with servers like MINEDIME. Includes FPS Boost, HUD Editor, Cosmetics, Skins Manager, Replay Mode, and Hotkeys.</p>
   <a href="download.html" style="margin-top:20px;padding:10px 20px;background:#22d3ee;color:black;font-weight:bold;border-radius:8px;text-decoration:none;">Download Now</a>
 </header>
 
 <section id="features">
   <h2>Features</h2>
-  <p>FPS Boost, HUD Editor, Custom Crosshairs, Cosmetic Manager, Replay Mode, Hotkeys and more.</p>
+  <ul>
+    <li>FPS Boost & Performance Enhancements</li>
+    <li>Customizable HUD & Crosshairs</li>
+    <li>Skins Upload & Fetch</li>
+    <li>Cosmetics & Capes</li>
+    <li>Replay Mode</li>
+    <li>Hotkeys & Keybinding Support</li>
+  </ul>
 </section>
 
 <section id="skins">
   <h2>Skins</h2>
-  <p>Upload, fetch, and preview skins. Apply them instantly in your client.</p>
+  <p>Upload, fetch, and preview skins. Apply them instantly in your client. Supports standard Minecraft skins.</p>
 </section>
 
 <section id="store">
   <h2>Store</h2>
-  <p>Capes, Emotes, Exclusive Cosmetics. Customize your client fully.</p>
+  <p>Capes, Emotes, Exclusive Cosmetics, Custom Overlays. All content is managed client-side or via server integration.</p>
 </section>
 
 <section id="collab">
