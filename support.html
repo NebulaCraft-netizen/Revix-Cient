@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revix Client — Support</title>
+
+<style>
+html,body{margin:0;padding:0;height:100%;overflow-x:hidden;font-family:'Inter',sans-serif;background:black;color:white;}
+header,section,footer{position:relative;}
+.galaxy-logo{width:150px;height:150px;border-radius:50%;background:conic-gradient(#22d3ee,#7c3aed,#ff22ee,#22d3ee);display:flex;justify-content:center;align-items:center;font-size:32px;font-weight:bold;color:white;}
+.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:0.8;animation:twinkle 4s infinite alternate;}
+@keyframes twinkle{0%{opacity:0.2;}50%{opacity:1;}100%{opacity:0.2;}}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:rgba(0,0,0,0.4);backdrop-filter:blur(6px);flex-wrap:wrap;position:fixed;width:100%;z-index:10;}
+.navbar .nav-links a{color:white;text-decoration:none;margin:0 8px;font-weight:bold;transition:0.2s;}
+.navbar .nav-links a:hover{color:#22d3ee;}
+.scroll-left{animation:scroll-left 10s linear infinite;}
+.scroll-right{animation:scroll-right 10s linear infinite;}
+@keyframes scroll-left{0%{left:0%}50%{left:50%}100%{left:0%}}
+@keyframes scroll-right{0%{left:0%}50%{left:-50%}100%{left:0%}}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const starsContainer=document.createElement('div');document.body.appendChild(starsContainer);
+  for(let i=0;i<300;i++){let star=document.createElement('div');star.className='star';star.style.top=Math.random()*100+'%';star.style.left=Math.random()*100+'%';star.style.width=star.style.height=(Math.random()*2+1)+'px';star.style.animationDuration=(Math.random()*3+2)+'s';starsContainer.appendChild(star);}
+});
+</script>
+
+</head>
+<body>
+
+<div id="splash" style="position:fixed;top:0;left:0;width:100%;height:100%;background:black;display:flex;justify-content:center;align-items:center;z-index:9999;">
+  <img src="assets/blackhole.png" style="width:200px;height:200px;">
+</div>
+<script>
+setTimeout(()=>{document.getElementById('splash').remove();},3000);
+</script>
+
+<nav class="navbar">
+  <div class="logo">RVX</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="download.html">Download</a>
+    <a href="features.html">Features</a>
+    <a href="skins.html">Skins</a>
+    <a href="store.html">Store</a>
+    <a href="support.html">Support</a>
+    <a href="collab.html">Collaboration</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+</nav>
+
+<header style="margin-top:100px;display:flex;flex-direction:column;align-items:center;gap:20px;">
+  <div class="galaxy-logo">BH</div>
+  <h1>SUPPORT PAGE</h1>
+</header>
+
+<section class="scroll-left">Scrolling left section...</section>
+<section class="scroll-right">Scrolling right section...</section>
+
+<footer style="text-align:center;padding:24px;color:#aaa;">© 2025 Revix Client × Minedime. All rights reserved.</footer>
+
+</body>
+</html>
