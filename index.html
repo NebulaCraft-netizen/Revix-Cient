@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revix Client — Home</title>
+<style>
+html,body{margin:0;padding:0;height:100%;overflow-x:hidden;font-family:'Inter',sans-serif;background:black;color:white;}
+header,section,footer{position:relative;}
+.galaxy-logo{width:150px;height:150px;border-radius:50%;background:conic-gradient(#22d3ee,#7c3aed,#ff22ee,#22d3ee);display:flex;justify-content:center;align-items:center;font-size:32px;font-weight:bold;color:white;}
+.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:0.8;animation:twinkle 4s infinite alternate;}
+@keyframes twinkle{0%{opacity:0.2;}50%{opacity:1;}100%{opacity:0.2;}}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:rgba(0,0,0,0.4);backdrop-filter:blur(6px);flex-wrap:wrap;position:fixed;width:100%;z-index:10;}
+.navbar .nav-links a{color:white;text-decoration:none;margin:0 8px;font-weight:bold;transition:0.2s;cursor:pointer;}
+.navbar .nav-links a:hover{color:#22d3ee;}
+.scroll-left{animation:scroll-left 8s linear infinite;}
+.scroll-right{animation:scroll-right 8s linear infinite;}
+@keyframes scroll-left{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes scroll-right{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+section{padding:100px 20px;min-height:100vh;}
+</style>
+</head>
+<body>
+
+<!-- Stars -->
+<div id="stars"></div>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const starsContainer=document.getElementById('stars');
+  for(let i=0;i<300;i++){
+    let star=document.createElement('div');
+    star.className='star';
+    star.style.top=Math.random()*100+'%';
+    star.style.left=Math.random()*100+'%';
+    star.style.width=star.style.height=(Math.random()*2+1)+'px';
+    star.style.animationDuration=(Math.random()*3+2)+'s';
+    starsContainer.appendChild(star);
+  }
+});
+</script>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">RVX</div>
+  <div class="nav-links">
+    <a onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">Home</a>
+    <a onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Features</a>
+    <a onclick="document.getElementById('skins').scrollIntoView({behavior:'smooth'})">Skins</a>
+    <a onclick="document.getElementById('store').scrollIntoView({behavior:'smooth'})">Store</a>
+    <a onclick="document.getElementById('collab').scrollIntoView({behavior:'smooth'})">Collab</a>
+  </div>
+</nav>
+
+<header id="home" style="margin-top:100px;display:flex;flex-direction:column;align-items:center;gap:20px;">
+  <div class="galaxy-logo">RVX</div>
+  <h1>REVIX CLIENT × MINEDIME</h1>
+  <p style="max-width:600px;text-align:center;">The ultimate Minecraft client. Fast, customizable, and ready to collaborate with servers like MINEDIME.</p>
+  <a href="download.html" style="margin-top:20px;padding:10px 20px;background:#22d3ee;color:black;font-weight:bold;border-radius:8px;text-decoration:none;">Download Now</a>
+</header>
+
+<section id="features">
+  <h2>Features</h2>
+  <p>FPS Boost, HUD Editor, Custom Crosshairs, Cosmetic Manager, Replay Mode, Hotkeys and more.</p>
+</section>
+
+<section id="skins">
+  <h2>Skins</h2>
+  <p>Upload, fetch, and preview skins. Apply them instantly in your client.</p>
+</section>
+
+<section id="store">
+  <h2>Store</h2>
+  <p>Capes, Emotes, Exclusive Cosmetics. Customize your client fully.</p>
+</section>
+
+<section id="collab">
+  <h2>Collaboration</h2>
+  <p>Revix Client (your client) integrates seamlessly with MINEDIME Server for PvP and survival gameplay enhancements. Work together and enjoy combined features.</p>
+</section>
+
+<footer style="text-align:center;padding:24px;color:#aaa;">© 2025 Revix Client × Minedime. All rights reserved.</footer>
+
+</body>
+</html>
