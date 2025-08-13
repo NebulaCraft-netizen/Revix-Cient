@@ -6,189 +6,109 @@
   <title>Revix Client × Minedime</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* --- RGB animated background --- */
-    body {
-      margin: 0;
-      height: 100%;
-      font-family: Inter, system-ui, sans-serif;
-      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff00ff);
-      background-size: 1200% 1200%;
-      animation: rgbBG 20s ease infinite;
-      color: #ffffff;
-    }
-    @keyframes rgbBG {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
-    }
+    /* Starfield */
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:#000;overflow-x:hidden;color:#fff}
+    .starfield{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+    .star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;opacity:0.8;animation:twinkle 5s infinite}
+    @keyframes twinkle{0%,100%{opacity:0.8}50%{opacity:0.2}}
 
-    /* --- Header / logo --- */
-    nav {
-      backdrop-filter: blur(8px);
-      background: rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 40px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+    /* Navbar */
+    nav{backdrop-filter:blur(8px);background:rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:fixed;width:100%;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,0.1)}
+    .logo{display:flex;align-items:center;gap:15px;cursor:pointer}
+    .logo-icon{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:24px;color:white;text-shadow:0 0 10px rgba(255,255,255,0.3);background:radial-gradient(circle at center, #000, #222)}
+    .logo-text{font-size:1.8rem;font-weight:bold}
+    .logo-text span{background:linear-gradient(90deg,#22d3ee,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    nav a{color:#fff;margin-left:25px;font-weight:500;transition:color 0.3s}
+    nav a:hover{color:#22d3ee}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .logo-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, #000000 0%, #0b0b0b 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 24px;
-      color: white;
-      text-shadow: 0 0 10px rgba(255,255,255,0.3);
-    }
-    .logo-text {
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-    .logo-text span {
-      background: linear-gradient(90deg, #22d3ee, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    /* Hero */
+    section{padding:120px 40px 80px;max-width:1200px;margin:0 auto}
+    h1.hero-title{font-size:4rem;font-weight:bold;color:white}
+    h1.hero-title span{background:linear-gradient(90deg,#22d3ee,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .download-btn{padding:12px 30px;border-radius:25px;background:linear-gradient(90deg,#7c3aed,#22d3ee);color:black;font-weight:bold;text-decoration:none;font-family:'Inter',sans-serif;transition:all 0.3s;display:inline-block;margin-top:20px}
+    .download-btn:hover{transform:scale(1.05);background:linear-gradient(90deg,#22d3ee,#7c3aed);color:white}
 
-    nav a {
-      color: #fff;
-      margin-left: 25px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover {color: #22d3ee;}
-
-    /* Sections */
-    section {
-      padding: 120px 40px 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    h1.hero-title {
-      font-size: 4rem;
-      font-weight: bold;
-      color: white;
-    }
-    h1.hero-title span {
-      background: linear-gradient(90deg, #22d3ee, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .glass {
-      backdrop-filter: blur(8px);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 20px;
-    }
-
-    .skins-grid, .store-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .skin-item, .store-item {
-      background: rgba(0,0,0,0.3);
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .skin-item:hover, .store-item:hover {
-      transform: scale(1.05);
-    }
-
-    .download-btn {
-      padding: 10px 25px;
-      border-radius: 10px;
-      background: #22d3ee;
-      color: black;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .download-btn:hover {background: #7c3aed; color: white;}
+    .glass{backdrop-filter:blur(8px);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px}
+    .skins-grid,.store-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-top:30px}
+    .skin-item,.store-item{background:rgba(0,0,0,0.3);border-radius:10px;padding:15px;text-align:center;transition:transform 0.3s}
+    .skin-item:hover,.store-item:hover{transform:scale(1.05)}
+    footer{text-align:center;padding:40px 20px;color:rgba(255,255,255,0.6);font-size:0.9rem}
   </style>
 </head>
 <body>
+<div class="starfield" id="starfield"></div>
 
-  <!-- Header -->
-  <nav>
-    <div class="logo">
-      <div class="logo-icon" id="logoIcon">R</div>
-      <div class="logo-text">Revix Client <span>× Minedime</span></div>
-    </div>
-    <div>
-      <a href="#download">Download</a>
-      <a href="#skins">Skins</a>
-      <a href="#store">Store</a>
-      <a href="#support">Support</a>
-    </div>
-  </nav>
+<!-- Navbar -->
+<nav>
+  <div class="logo" onclick="window.location.href='index.html'">
+    <div class="logo-icon" id="logoIcon">R</div>
+    <div class="logo-text">Revix Client <span>× Minedime</span></div>
+  </div>
+  <div>
+    <a href="download.html">Download</a>
+    <a href="#skins">Skins</a>
+    <a href="#store">Store</a>
+    <a href="#support">Support</a>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <h1 class="hero-title">Revix Client <span>× Minedime</span></h1>
-    <p style="margin-top: 20px; font-size: 1.2rem; max-width: 700px;">A modern Minecraft client with cosmetics, skins, store, and advanced features. Enjoy full customization and high performance.</p>
-    <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.zip" class="download-btn" download>Download Client</a>
-  </section>
+<!-- Hero -->
+<section id="hero">
+  <h1 class="hero-title">Revix Client <span>× Minedime</span></h1>
+  <p style="margin-top:20px;font-size:1.2rem;max-width:700px">Modern Minecraft client with cosmetics, skins, store, and advanced features.</p>
+  <a href="download.html" class="download-btn">Download Client</a>
+</section>
 
-  <!-- Skins Section -->
-  <section id="skins">
-    <h2 style="font-size:2rem; font-weight:bold;">Skins</h2>
-    <div class="skins-grid">
-      <div class="skin-item">Default Skin</div>
-      <div class="skin-item">Galaxy Skin</div>
-      <div class="skin-item">Classic Skin</div>
-      <div class="skin-item">Owner Skin</div>
-    </div>
-  </section>
+<!-- Skins -->
+<section id="skins">
+  <h2 style="font-size:2rem;font-weight:bold">Skins</h2>
+  <div class="skins-grid">
+    <div class="skin-item">Default Skin</div>
+    <div class="skin-item">Galaxy Skin</div>
+    <div class="skin-item">Classic Skin</div>
+    <div class="skin-item">Owner Skin</div>
+  </div>
+</section>
 
-  <!-- Store Section -->
-  <section id="store">
-    <h2 style="font-size:2rem; font-weight:bold;">Store</h2>
-    <div class="store-grid">
-      <div class="store-item">Cape 1</div>
-      <div class="store-item">Cape 2</div>
-      <div class="store-item">Emote Pack</div>
-      <div class="store-item">Special Owner Pack</div>
-    </div>
-  </section>
+<!-- Store -->
+<section id="store">
+  <h2 style="font-size:2rem;font-weight:bold">Store</h2>
+  <div class="store-grid">
+    <div class="store-item">Cape 1</div>
+    <div class="store-item">Cape 2</div>
+    <div class="store-item">Emote Pack</div>
+    <div class="store-item">Special Owner Pack</div>
+  </div>
+</section>
 
-  <!-- Support Section -->
-  <section id="support">
-    <h2 style="font-size:2rem; font-weight:bold;">Support</h2>
-    <p>For help, contact <a href="https://discord.gg" style="color:#22d3ee;">Discord</a> or check our FAQ.</p>
-  </section>
+<!-- Support -->
+<section id="support">
+  <h2 style="font-size:2rem;font-weight:bold">Support</h2>
+  <p>For help, contact <span style="color:gray">Discord link not released yet</span>.</p>
+</section>
 
-  <script>
-    // Logo color based on user name
-    const logoIcon = document.getElementById('logoIcon');
-    const user = localStorage.getItem('rvx_user') || 'guest';
-    if(user.toLowerCase() === 'cracked'){
-      logoIcon.style.background = 'radial-gradient(circle at center, #1e3c72, #2a5298)'; // blue galaxy for owner
-    } else {
-      logoIcon.style.background = 'radial-gradient(circle at center, #000000, #222222)'; // normal galaxy for others
-    }
-  </script>
+<!-- Footer -->
+<footer>© 2025 Revix Client × Minedime — All rights reserved. Collaboration & Creative Team</footer>
+
+<script>
+  // Tiny stars generation
+  const starfield = document.getElementById('starfield');
+  for(let i=0;i<200;i++){
+    const star=document.createElement('div');
+    star.className='star';
+    star.style.top=Math.random()*window.innerHeight+'px';
+    star.style.left=Math.random()*window.innerWidth+'px';
+    starfield.appendChild(star);
+  }
+
+  // Logo color based on user
+  const logoIcon=document.getElementById('logoIcon');
+  const user=localStorage.getItem('rvx_user')||'guest';
+  if(user.toLowerCase()==='cracked'){
+    logoIcon.style.background='radial-gradient(circle at center,#1e3c72,#2a5298)';
+  } else {
+    logoIcon.style.background='radial-gradient(circle at center,#000,#222)';
+  }
+</script>
 </body>
 </html>
