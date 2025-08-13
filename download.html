@@ -3,37 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revix Client — Download</title>
+<title>Download Revix Client</title>
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-html,body{margin:0;padding:0;height:100%;overflow-x:hidden;font-family:'Inter',sans-serif;background:black;color:white;text-align:center;}
-button{padding:12px 24px;margin:10px;border:none;border-radius:8px;font-weight:bold;cursor:pointer;}
-.btn-win{background:#22d3ee;color:black;}
-.btn-mac{background:#7c3aed;color:white;}
-.btn-linux{background:#facc15;color:black;}
-.galaxy-logo{width:150px;height:150px;border-radius:50%;background:conic-gradient(#22d3ee,#7c3aed,#ff22ee,#22d3ee);display:flex;justify-content:center;align-items:center;font-size:32px;font-weight:bold;color:white;margin:auto;margin-top:50px;}
-.top-bar{position:fixed;top:0;left:0;width:100%;background:#111;color:#22d3ee;padding:6px;font-weight:bold;z-index:1000;font-family:'Inter',sans-serif;}
+  body { margin:0; font-family: Inter, sans-serif; background:#000; color:#fff; }
+  .container { max-width:900px; margin:50px auto; text-align:center; }
+  .btn-download { background: linear-gradient(90deg,#22d3ee,#7c3aed); color:black; font-weight:bold; padding:12px 24px; border-radius:10px; text-decoration:none; transition:0.3s; margin:10px; display:inline-block; }
+  .btn-download:hover { transform: scale(1.05); }
+  img { max-width:100%; border-radius:15px; margin:20px 0; }
 </style>
 </head>
 <body>
 
-<div class="top-bar">Welcome to Revix Client × Minedime — Download Page</div>
+<div class="container">
+  <h1 style="font-size:2.5rem;">Download Revix Client</h1>
+  <p>Choose your platform and start the ultimate Minecraft experience.</p>
 
-<div class="galaxy-logo">RVX</div>
-<h1>Download Revix Client</h1>
-<p>Choose your platform to download the latest client version.</p>
-<div>
-  <button class="btn-win" onclick="window.location.href='https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient_Windows.zip'">Windows</button>
-  <button class="btn-mac" onclick="window.location.href='https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient_Mac.zip'">Mac</button>
-  <button class="btn-linux" onclick="window.location.href='https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient_Linux.zip'">Linux</button>
+  <!-- Replace these GitHub links with your actual client release -->
+  <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.jar" class="btn-download">Download for Windows</a>
+  <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.jar" class="btn-download">Download for Mac</a>
+  <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.jar" class="btn-download">Download for Linux</a>
+
+  <h2>Preview</h2>
+  <img src="https://i.ibb.co/9YtCq3Q/minecraft-gui.png" alt="Client GUI Preview">
 </div>
-
-<section style="padding:50px;">
-  <h2>Client GUI Preview</h2>
-  <p>AI-generated GUI previews and shaders applied in Minecraft.</p>
-  <img src="https://via.placeholder.com/600x300?text=GUI+Preview" alt="GUI Preview" style="border-radius:12px;margin-top:20px;">
-</section>
-
-<footer style="text-align:center;padding:24px;color:#aaa;">© 2025 Revix Client × Minedime. All rights reserved.</footer>
 
 </body>
 </html>
