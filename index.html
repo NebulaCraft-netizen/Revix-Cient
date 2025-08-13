@@ -1,193 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Revix Client — Revix Client × Minedime</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revix Client × Minedime</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* --- Old starfield background --- */
-    :root{--bg:#060611}
-    html,body{height:100%}
-    body{margin:0;background:radial-gradient(ellipse at bottom, #0b1020 0%, #03030a 60%), var(--bg);color:#ecf0f3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
-    .stars, .stars2, .stars3{position:fixed;inset:0;z-index:-1}
-    .stars::before, .stars2::before, .stars3::before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background-repeat:repeat;opacity:0.6}
-    .stars::before{background-image:radial-gradient(#ffffff 1px, transparent 1px);background-size:3px 3px;animation:animStars 120s linear infinite}
-    .stars2::before{background-image:radial-gradient(#ffffff 1px, transparent 1px);background-size:5px 5px;opacity:0.25;animation:animStars 200s linear infinite}
-    .stars3::before{background-image:radial-gradient(#9fb4ff 1px, transparent 1px);background-size:8px 8px;opacity:0.12;animation:animStars 320s linear infinite}
-    @keyframes animStars{from{transform:translateY(0)}to{transform:translateY(-1000px)}}
+    /* --- RGB animated background --- */
+    body {
+      margin: 0;
+      height: 100%;
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+      background-size: 1200% 1200%;
+      animation: rgbBG 20s ease infinite;
+      color: #ffffff;
+    }
+    @keyframes rgbBG {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
 
-    /* header */
-    nav a{transition:color .18s ease}
+    /* --- Header / logo --- */
+    nav {
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 
-    /* buttons */
-    .btn-download{transition:transform .18s cubic-bezier(.2,.9,.2,1),box-shadow .18s;transform-origin:center}
-    .btn-download:hover{transform:scale(1.06);box-shadow:0 10px 30px rgba(34,211,238,.14)}
-
-    /* glass panels */
-    .glass{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04)}
-
-    /* small helpers */
-    .accent{background:linear-gradient(90deg,#22d3ee,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-    /* responsive tweaks */
-    @media (max-width:768px){h1{font-size:1.25rem}}
-
-    /* --- New START button RGB hover --- */
-    .start-btn {
-      font-size: 2rem;
-      padding: 20px 50px;
-      border: none;
-      cursor: pointer;
-      border-radius: 15px;
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 400% 400%;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #000000 0%, #0b0b0b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 24px;
       color: white;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.5s ease;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
-      display: inline-block;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .logo-text span {
+      background: linear-gradient(90deg, #22d3ee, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {color: #22d3ee;}
+
+    /* Sections */
+    section {
+      padding: 120px 40px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1.hero-title {
+      font-size: 4rem;
+      font-weight: bold;
+      color: white;
+    }
+    h1.hero-title span {
+      background: linear-gradient(90deg, #22d3ee, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass {
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .skins-grid, .store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
       margin-top: 30px;
     }
-    .start-btn:hover {
-      animation: rainbow 3s linear infinite;
-      transform: scale(1.1);
+
+    .skin-item, .store-item {
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
     }
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .skin-item:hover, .store-item:hover {
+      transform: scale(1.05);
     }
+
+    .download-btn {
+      padding: 10px 25px;
+      border-radius: 10px;
+      background: #22d3ee;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .download-btn:hover {background: #7c3aed; color: white;}
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="stars2"></div>
-  <div class="stars3"></div>
 
-  <nav class="fixed top-0 left-0 right-0 z-40 px-6 py-4 flex items-center justify-between glass">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-violet-600 flex items-center justify-center text-black font-bold">RVX</div>
-      <div>
-        <div class="text-lg font-semibold">Revix Client</div>
-        <div class="text-xs text-gray-300">Revix × Minedime</div>
-      </div>
+  <!-- Header -->
+  <nav>
+    <div class="logo">
+      <div class="logo-icon" id="logoIcon">R</div>
+      <div class="logo-text">Revix Client <span>× Minedime</span></div>
     </div>
-
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#download" class="hover:text-cyan-300">Download</a>
-      <a href="#features" class="hover:text-cyan-300">Features</a>
-      <a href="#store" class="hover:text-cyan-300">Store</a>
-      <a href="#support" class="hover:text-cyan-300">Support</a>
-      <a href="#skins" class="hover:text-cyan-300">Skins</a>
-      <a href="#login" class="hover:text-cyan-300">Minecraft Login</a>
-      <a href="https://discord.gg" target="_blank" class="text-cyan-200 font-semibold">Discord</a>
-    </div>
-
-    <div class="md:hidden">
-      <button id="mobileOpen" class="p-2 rounded bg-white/5">Menu</button>
+    <div>
+      <a href="#download">Download</a>
+      <a href="#skins">Skins</a>
+      <a href="#store">Store</a>
+      <a href="#support">Support</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="min-h-screen flex flex-col items-center justify-center px-6" style="padding-top:88px">
-    <div class="max-w-6xl w-full grid md:grid-cols-2 gap-8 items-center">
-      <div class="space-y-6">
-        <h1 class="text-5xl font-extrabold leading-tight">REVIX CLIENT <span class="accent">× MINEDIME</span></h1>
-        <p class="text-gray-300 max-w-xl">A modern Minecraft client inspired by top clients — built to be fast, customizable, and fun. Revix supports cosmetics, crosshairs, HUD editing, replay features and an easy-to-use skin manager (upload from your PC or fetch any premium player's skin by username).</p>
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1 class="hero-title">Revix Client <span>× Minedime</span></h1>
+    <p style="margin-top: 20px; font-size: 1.2rem; max-width: 700px;">A modern Minecraft client with cosmetics, skins, store, and advanced features. Enjoy full customization and high performance.</p>
+    <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.zip" class="download-btn" download>Download Client</a>
+  </section>
 
-        <!-- New START button -->
-        <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.zip" class="start-btn" download>START</a>
-
-        <div class="flex gap-4 mt-6">
-          <a id="dlWin" href="#download" class="btn-download inline-block bg-cyan-500 text-black font-bold px-6 py-3 rounded-lg">Download (Windows)</a>
-          <a id="dlMac" href="#download" class="btn-download inline-block bg-violet-600 text-white font-bold px-6 py-3 rounded-lg">Download (Mac)</a>
-          <a id="dlLin" href="#download" class="btn-download inline-block bg-gray-700 text-white font-bold px-6 py-3 rounded-lg">Download (Linux)</a>
-        </div>
-
-        <div class="mt-4 text-sm text-gray-400">Note: The built-in login UI is a demo. To implement real Mojang / Microsoft authentication you need a secure backend. Do not paste your password on untrusted sites.</div>
-      </div>
-
-      <div class="glass p-6 rounded-xl shadow-xl">
-        <h3 class="text-xl font-semibold mb-3">Quick Demo Panel</h3>
-        <div class="grid gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded bg-cyan-500/30 flex items-center justify-center font-bold">A</div>
-            <div>
-              <div class="font-semibold">FPS Boost</div>
-              <div class="text-xs text-gray-300">Client-side FPS & render optimizations</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded bg-violet-500/30 flex items-center justify-center font-bold">H</div>
-            <div>
-              <div class="font-semibold">HUD Editor</div>
-              <div class="text-xs text-gray-300">Drag & drop keystrokes, CPS, compass and more</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded bg-yellow-400/20 flex items-center justify-center font-bold">S</div>
-            <div>
-              <div class="font-semibold">Skins</div>
-              <div class="text-xs text-gray-300">Upload or fetch skins from usernames</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- Skins Section -->
+  <section id="skins">
+    <h2 style="font-size:2rem; font-weight:bold;">Skins</h2>
+    <div class="skins-grid">
+      <div class="skin-item">Default Skin</div>
+      <div class="skin-item">Galaxy Skin</div>
+      <div class="skin-item">Classic Skin</div>
+      <div class="skin-item">Owner Skin</div>
     </div>
-  </header>
+  </section>
 
-  <!-- Features, Download, Store, Skin manager, Footer, and old scripts remain unchanged -->
-  <!-- You can keep the rest of your HTML exactly as in your original file -->
+  <!-- Store Section -->
+  <section id="store">
+    <h2 style="font-size:2rem; font-weight:bold;">Store</h2>
+    <div class="store-grid">
+      <div class="store-item">Cape 1</div>
+      <div class="store-item">Cape 2</div>
+      <div class="store-item">Emote Pack</div>
+      <div class="store-item">Special Owner Pack</div>
+    </div>
+  </section>
+
+  <!-- Support Section -->
+  <section id="support">
+    <h2 style="font-size:2rem; font-weight:bold;">Support</h2>
+    <p>For help, contact <a href="https://discord.gg" style="color:#22d3ee;">Discord</a> or check our FAQ.</p>
+  </section>
 
   <script>
-    // --- All old scripts remain as-is ---
-    const loginForm = document.getElementById('loginForm');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const crackedCheckbox = document.getElementById('cracked');
-    const btnLogin = document.getElementById('btnLogin');
-    const btnLogout = document.getElementById('btnLogout');
-    const loginStatus = document.getElementById('loginStatus');
-
-    function updateStatus(){
-      const user = localStorage.getItem('rvx_user');
-      if(user){
-        loginStatus.textContent = 'Logged in as ' + user + ' (demo)';
-      } else {
-        loginStatus.textContent = 'Not logged in';
-      }
+    // Logo color based on user name
+    const logoIcon = document.getElementById('logoIcon');
+    const user = localStorage.getItem('rvx_user') || 'guest';
+    if(user.toLowerCase() === 'cracked'){
+      logoIcon.style.background = 'radial-gradient(circle at center, #1e3c72, #2a5298)'; // blue galaxy for owner
+    } else {
+      logoIcon.style.background = 'radial-gradient(circle at center, #000000, #222222)'; // normal galaxy for others
     }
-    updateStatus();
-
-    btnLogin.addEventListener('click', ()=>{
-      const name = usernameInput.value.trim();
-      const pwd = passwordInput.value;
-      const cracked = crackedCheckbox.checked;
-      if(!name) return alert('Enter a username');
-      if(!cracked && !pwd) return alert('Enter a password or enable cracked mode');
-      localStorage.setItem('rvx_user', name);
-      updateStatus();
-      alert('Demo login success — this is a client-side mock. Real authentication requires a server.');
-    });
-    btnLogout.addEventListener('click', ()=>{
-      localStorage.removeItem('rvx_user');
-      updateStatus();
-      alert('Logged out (demo)');
-    });
-
-    // Skin manager scripts remain unchanged...
-
-    // Mobile menu
-    document.getElementById('mobileOpen').addEventListener('click', ()=>{
-      alert('Mobile menu demo — open the site on desktop for full nav.');
-    });
-
-    // Click listeners for old download buttons
-    document.getElementById('dlWin').addEventListener('click', (e)=>{ e.preventDefault(); alert('Download link placeholder. Upload your launcher binary on GitHub Releases and link here.'); });
-    document.getElementById('dlMac').addEventListener('click', (e)=>{ e.preventDefault(); alert('Download link placeholder.'); });
-    document.getElementById('dlLin').addEventListener('click', (e)=>{ e.preventDefault(); alert('Download link placeholder.'); });
   </script>
 </body>
 </html>
