@@ -5,88 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download Revix Client</title>
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Inter', sans-serif;
-    background: black;
-    color: white;
-  }
-  body::before {
-    content:"";
-    position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: radial-gradient(circle at center, #111 0%, #000 100%);
-    z-index: -2;
-  }
-  .stars {
-    position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    z-index: -1;
-  }
-  .star {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: twinkle 4s infinite alternate;
-  }
-  @keyframes twinkle {
-    0% { opacity: 0.2; transform: translateY(0); }
-    50% { opacity: 1; transform: translateY(-2px); }
-    100% { opacity: 0.2; transform: translateY(0); }
-  }
-
-  header {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
-    padding-top: 80px;
-  }
-
-  .download-btn {
-    padding: 12px 28px;
-    font-size: 1.25rem;
-    background: linear-gradient(to right, #22d3ee, #7c3aed);
-    color: black;
-    font-weight: bold;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-  .download-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #7c3aed;
-  }
-
-  .previews {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 40px;
-    justify-content: center;
-  }
-  .previews img {
-    max-width: 300px;
-    border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.2);
-  }
-
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: #aaa;
-    font-size: 0.85rem;
-  }
+  html, body { margin:0; padding:0; height:100%; font-family:'Inter',sans-serif; background:black; color:white; overflow-x:hidden; }
+  body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%; background:black; z-index:-2; }
+  .stars { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+  .star { position:absolute; width:1px; height:1px; background:white; border-radius:50%; opacity:0.8; animation:twinkle 4s infinite alternate; }
+  @keyframes twinkle {0%{opacity:0.2;}50%{opacity:1;}100%{opacity:0.2;}}
+  header { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:20px; padding-top:80px; }
+  .download-btn { padding:14px 32px; font-size:1.5rem; background:linear-gradient(to right,#22d3ee,#7c3aed); color:black; font-weight:bold; border-radius:14px; text-decoration:none; transition:0.2s; }
+  .download-btn:hover { transform:scale(1.05); box-shadow:0 0 15px #7c3aed; }
+  .previews { display:flex; flex-wrap:wrap; gap:20px; margin-top:40px; justify-content:center; }
+  .previews img { max-width:300px; border-radius:12px; border:2px solid rgba(255,255,255,0.2); }
+  footer { text-align:center; padding:24px; color:#aaa; font-size:0.85rem; }
 </style>
 </head>
 <body>
@@ -96,9 +25,9 @@
   <h1>Download Revix Client</h1>
   <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.zip" class="download-btn">Download for Windows</a>
   <div class="previews">
-    <img src="https://via.placeholder.com/300x200.png?text=Minecraft+GUI+Preview+1" alt="GUI Preview 1">
-    <img src="https://via.placeholder.com/300x200.png?text=Minecraft+GUI+Preview+2" alt="GUI Preview 2">
-    <img src="https://via.placeholder.com/300x200.png?text=Minecraft+GUI+Preview+3" alt="GUI Preview 3">
+    <img src="https://via.placeholder.com/300x200.png?text=GUI+Preview+1" alt="GUI Preview 1">
+    <img src="https://via.placeholder.com/300x200.png?text=GUI+Preview+2" alt="GUI Preview 2">
+    <img src="https://via.placeholder.com/300x200.png?text=GUI+Preview+3" alt="GUI Preview 3">
   </div>
 </header>
 
@@ -108,14 +37,14 @@
 
 <script>
   const starsContainer = document.getElementById('stars');
-  const starCount = 200;
+  const starCount = 300;
   for(let i=0;i<starCount;i++){
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.top = Math.random()*100+'%';
-    star.style.left = Math.random()*100+'%';
-    star.style.width = star.style.height = (Math.random()*2+1)+'px';
-    star.style.animationDuration = (Math.random()*3+2)+'s';
+    const star=document.createElement('div');
+    star.className='star';
+    star.style.top=Math.random()*100+'%';
+    star.style.left=Math.random()*100+'%';
+    star.style.width=star.style.height=(Math.random()*2+1)+'px';
+    star.style.animationDuration=(Math.random()*3+2)+'s';
     starsContainer.appendChild(star);
   }
 </script>
