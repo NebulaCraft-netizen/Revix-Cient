@@ -5,37 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Revix Client — Revix × Minedime</title>
 <style>
-  html, body { margin:0; padding:0; height:100%; font-family:'Inter', sans-serif; background:black; color:white; overflow-x:hidden; }
-  
-  /* Background stars */
-  body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%; background:black; z-index:-2; }
-  .stars { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
-  .star { position:absolute; width:1px; height:1px; background:white; border-radius:50%; opacity:0.8; animation:twinkle 4s infinite alternate; }
-  @keyframes twinkle { 0%{opacity:0.2;} 50%{opacity:1;} 100%{opacity:0.2;} }
-
-  nav { display:flex; justify-content:space-between; align-items:center; padding:12px 24px; background:rgba(0,0,0,0.4); backdrop-filter:blur(6px); position:fixed; width:100%; z-index:10; flex-wrap:wrap; }
-  nav .logo { display:flex; align-items:center; gap:10px; font-weight:bold; }
-  nav .logo-circle { width:50px; height:50px; border-radius:50%; background: conic-gradient(blue, purple, pink, blue); display:flex; justify-content:center; align-items:center; color:white; font-weight:bold; font-size:22px; }
-  nav .nav-links { display:flex; gap:15px; flex-wrap:wrap; }
-  nav .nav-links a { color:white; text-decoration:none; font-weight:bold; transition:0.2s; }
-  nav .nav-links a:hover { color:#22d3ee; }
-
-  header { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:20px; padding-top:100px; position:relative; }
-  header h1 { font-size:4rem; font-weight:bold; }
-  header h1 .accent { background:linear-gradient(90deg,#7c3aed,#22d3ee); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-  .galaxy-logo { width:150px; height:150px; border-radius:50%; background: conic-gradient(#22d3ee,#7c3aed,#ff22ee,#22d3ee); display:flex; justify-content:center; align-items:center; font-size:32px; font-weight:bold; color:white; animation:rotate 20s linear infinite; margin-bottom:10px; }
-  @keyframes rotate { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
-
-  .download-btn { margin-top:20px; padding:12px 28px; font-size:1.25rem; background: linear-gradient(to right,#22d3ee,#7c3aed); color:black; font-weight:bold; border-radius:12px; text-decoration:none; transition:0.2s; }
-  .download-btn:hover { transform:scale(1.05); box-shadow:0 0 15px #7c3aed; }
-
-  section { padding:60px 24px; max-width:1200px; margin:auto; }
-  section h2 { font-size:2rem; margin-bottom:24px; }
-  .grid { display:grid; gap:20px; }
-  .grid-3 { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
-  .glass { padding:20px; background:rgba(255,255,255,0.05); border-radius:12px; backdrop-filter:blur(6px); color:white; }
-  footer { text-align:center; padding:24px; color:#aaa; font-size:0.85rem; }
-
+html, body { margin:0; padding:0; height:100%; font-family:'Inter',sans-serif; background:black; color:white; overflow-x:hidden; }
+body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%; background:black; z-index:-2; }
+.stars { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+.star { position:absolute; width:1px; height:1px; background:white; border-radius:50%; opacity:0.8; animation:twinkle 4s infinite alternate; }
+@keyframes twinkle {0%{opacity:0.2;}50%{opacity:1;}100%{opacity:0.2;}}
+nav { display:flex; justify-content:space-between; align-items:center; padding:12px 24px; background:rgba(0,0,0,0.4); backdrop-filter:blur(6px); position:fixed; width:100%; z-index:10; flex-wrap:wrap; }
+nav .logo { display:flex; align-items:center; gap:10px; font-weight:bold; }
+nav .logo-circle { width:50px; height:50px; border-radius:50%; background: conic-gradient(blue, purple, pink, blue); display:flex; justify-content:center; align-items:center; color:white; font-weight:bold; font-size:22px; }
+nav .nav-links { display:flex; gap:15px; flex-wrap:wrap; }
+nav .nav-links a { color:white; text-decoration:none; font-weight:bold; transition:0.2s; }
+nav .nav-links a:hover { color:#22d3ee; }
+header { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:20px; padding-top:100px; position:relative; }
+header h1 { font-size:4rem; font-weight:bold; }
+header h1 .accent { background:linear-gradient(90deg,#7c3aed,#22d3ee); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.galaxy-logo { width:150px; height:150px; border-radius:50%; background: conic-gradient(#22d3ee,#7c3aed,#ff22ee,#22d3ee); display:flex; justify-content:center; align-items:center; font-size:32px; font-weight:bold; color:white; animation:rotate 20s linear infinite; margin-bottom:10px; }
+@keyframes rotate { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+.download-btn { margin-top:20px; padding:12px 28px; font-size:1.25rem; background: linear-gradient(to right,#22d3ee,#7c3aed); color:black; font-weight:bold; border-radius:12px; text-decoration:none; transition:0.2s; }
+.download-btn:hover { transform:scale(1.05); box-shadow:0 0 15px #7c3aed; }
+section { padding:60px 24px; max-width:1200px; margin:auto; }
+section h2 { font-size:2rem; margin-bottom:24px; }
+.grid { display:grid; gap:20px; }
+.grid-3 { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+.glass { padding:20px; background:rgba(255,255,255,0.05); border-radius:12px; backdrop-filter:blur(6px); color:white; }
+footer { text-align:center; padding:24px; color:#aaa; font-size:0.85rem; }
 </style>
 </head>
 <body>
@@ -107,22 +100,27 @@
   <div class="glass">Discord / FAQ / Contact</div>
 </section>
 
+<section id="collab">
+  <h2>Collaboration</h2>
+  <div class="glass">Work with us on new features, skins, and community events.</div>
+</section>
+
 <footer>
   © 2025 Revix Client × Minedime. All rights reserved. Collaboration welcome.
 </footer>
 
 <script>
-  const starsContainer = document.getElementById('stars');
-  const starCount = 300; // lots of stars
-  for(let i=0;i<starCount;i++){
-    const star=document.createElement('div');
-    star.className='star';
-    star.style.top=Math.random()*100+'%';
-    star.style.left=Math.random()*100+'%';
-    star.style.width=star.style.height=(Math.random()*2+1)+'px';
-    star.style.animationDuration=(Math.random()*3+2)+'s';
-    starsContainer.appendChild(star);
-  }
+const starsContainer = document.getElementById('stars');
+const starCount = 300;
+for(let i=0;i<starCount;i++){
+  const star=document.createElement('div');
+  star.className='star';
+  star.style.top=Math.random()*100+'%';
+  star.style.left=Math.random()*100+'%';
+  star.style.width=star.style.height=(Math.random()*2+1)+'px';
+  star.style.animationDuration=(Math.random()*3+2)+'s';
+  starsContainer.appendChild(star);
+}
 </script>
 </body>
 </html>
