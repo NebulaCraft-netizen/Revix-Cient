@@ -1,37 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Revix Client</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body{margin:0;font-family:Inter,system-ui,sans-serif;background:#0b0b0f;color:#fff;overflow-x:hidden}
-    .hero{position:relative;text-align:center;padding:120px 20px;background-image:url('https://i.imgur.com/l9L4g3v.jpg');background-size:cover;background-position:center}
-    .hero h1{font-size:3rem;font-weight:bold;margin-bottom:20px;color:white;text-shadow:0 0 15px rgba(0,0,0,0.7)}
-    .download-btn{padding:15px 40px;border-radius:30px;background:linear-gradient(90deg,#7c3aed,#22d3ee);color:black;font-weight:bold;text-decoration:none;font-size:1.2rem;display:inline-block;margin-top:30px;transition:all 0.3s}
-    .download-btn:hover{transform:scale(1.05);color:white;background:linear-gradient(90deg,#22d3ee,#7c3aed)}
-    .previews{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:50px}
-    .preview-item{width:300px;height:180px;border-radius:12px;overflow:hidden;position:relative;box-shadow:0 0 15px rgba(0,0,0,0.5);transition:transform 0.3s}
-    .preview-item img{width:100%;height:100%;object-fit:cover}
-    .preview-item:hover{transform:scale(1.05)}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Revix Client</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background: black;
+    color: white;
+  }
+  body::before {
+    content:"";
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    z-index: -2;
+  }
+  .stars {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index: -1;
+  }
+  .star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 4s infinite alternate;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.2; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-2px); }
+    100% { opacity: 0.2; transform: translateY(0); }
+  }
+
+  header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding-top: 80px;
+  }
+
+  .download-btn {
+    padding: 12px 28px;
+    font-size: 1.25rem;
+    background: linear-gradient(to right, #22d3ee, #7c3aed);
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #7c3aed;
+  }
+
+  .previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+    justify-content: center;
+  }
+  .previews img {
+    max-width: 300px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: #aaa;
+    font-size: 0.85rem;
+  }
+</style>
 </head>
 <body>
+<div class="stars" id="stars"></div>
 
-<div class="hero">
+<header>
   <h1>Download Revix Client</h1>
   <a href="https://github.com/NebulaCraft-netizen/Revix-Cient/releases/download/v1.0/RevixClient.zip" class="download-btn">Download for Windows</a>
-</div>
+  <div class="previews">
+    <img src="https://via.placeholder.com/300x200.png?text=Minecraft+GUI+Preview+1" alt="GUI Preview 1">
+    <img src="https://via.placeholder.com/300x200.png?text=Minecraft+GUI+Preview+2" alt="GUI Preview 2">
+    <img src="https://via.placeholder.com/300x200.png?text=Minecraft+GUI+Preview+3" alt="GUI Preview 3">
+  </div>
+</header>
 
-<section class="previews">
-  <div class="preview-item"><img src="https://i.imgur.com/2FQ0a6N.jpg" alt="Minecraft GUI"></div>
-  <div class="preview-item"><img src="https://i.imgur.com/k2uF5lm.jpg" alt="Client GUI"></div>
-  <div class="preview-item"><img src="https://i.imgur.com/7R1N2aP.jpg" alt="Cosmetics Preview"></div>
-</section>
+<footer>
+  © 2025 Revix Client × Minedime. All rights reserved.
+</footer>
 
-<footer style="text-align:center;padding:40px 20px;color:rgba(255,255,255,0.6)">© 2025 Revix Client × Minedime — All rights reserved</footer>
-
+<script>
+  const starsContainer = document.getElementById('stars');
+  const starCount = 200;
+  for(let i=0;i<starCount;i++){
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.top = Math.random()*100+'%';
+    star.style.left = Math.random()*100+'%';
+    star.style.width = star.style.height = (Math.random()*2+1)+'px';
+    star.style.animationDuration = (Math.random()*3+2)+'s';
+    starsContainer.appendChild(star);
+  }
+</script>
 </body>
 </html>
-
